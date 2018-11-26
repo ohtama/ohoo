@@ -1,19 +1,20 @@
 {
-  "name": "cricri",
+  "name": "ohoo",
   "version": "0.1.0",
   "description": "",
-  "author": "",
+  "author": "chintaro",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon ./bin/www --exec babel-node --presets env",
     "dev2": "npm run react-build && npm run dev",
     "prod": "cross-env NODE_ENV=production babel-node ./bin/www --presets env",
     "prod2": "npm run react-build && npm run prod",
-    "start": "prod2",
+    "start": "npm run dev2",
     "react-start": "react-scripts start",
     "react-build": "react-scripts build",
     "react-test": "react-scripts test --env=jsdom",
-    "react-eject": "react-scripts eject"
+    "react-eject": "react-scripts eject",
+    "ohoo": "npm run dev2"
   },
   "dependencies": {
     "@material-ui/core": "^3.5.1",
