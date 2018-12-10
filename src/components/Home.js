@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 
-import wallpaper from '../venice.jpg';
+import Navber from './Navbar';
 
 const styles = {
   nav: {
@@ -21,13 +21,13 @@ const styles = {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    backgroundImage: "url(" + wallpaper + ")",
+    //backgroundImage: "url(" + wallpaper + ")",
   },
   topContainer: {
     height: "100vh",
     paddingRight: "20px",
     paddingLeft: "20px",
-    backgroundColor: "#003366",
+    backgroundColor: "rgba(0, 0, 255, 0.2)",
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
@@ -137,10 +137,8 @@ class Top extends React.Component{
     const {classes} = this.props;
     return (
       <React.Fragment>
-        <div className={classes.wp}>
-        <Link to='/ProjectList'>掲示板</Link>
-        </div>
-      </React.Fragment>   
+        
+      </React.Fragment>
     );
   }
 }

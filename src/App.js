@@ -11,8 +11,10 @@ import './App.css';
 //import Top from './components/top';
 import Top from './components/Top';
 import Board from './components/Board';
-import Sns from './components/Sns';
+import Home from './components/Home';
 import Navbar from './components/Navbar';
+import ProjectList from './components/ProjectList'
+import Profile from './components/Profile';
 
 const page_reload_in = 5000
 
@@ -71,7 +73,9 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={ Top } />
           <Route exact path='/Board' component={ Board } />
-          <Route exact path='/Sns' component={ Sns } />
+          <Route exact path='/Home' component={ Home } />
+          <Route exact path='/ProjectList' component={ ProjectList} />
+          <Route exact path='/Profile' component={ Profile } />
         </Switch>
         </div>
       </div>

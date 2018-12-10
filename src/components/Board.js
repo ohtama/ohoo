@@ -94,19 +94,18 @@ const styles = {
       flexFlow: "row-reverse nowrap"
     }
 };
-class ProjectCreator extends React.Component {
+class Board extends React.Component {
     state = {
       name: "",
-      shortDesc: "",
+      gameTag: "",
       desc: "",
-      mainImg: ""
     };
     componentDidMount() {
     }
     onClickPost = () => {
         var params = {
           name: this.state.name.trim(),
-          shortDesc: this.state.shortDesc.trim(),
+          gameTag: this.state.gameTag.trim(),
           desc: this.state.desc.trim(),
         }
     }
@@ -125,18 +124,18 @@ class ProjectCreator extends React.Component {
             <div className={classes.flex}>
               <TextField
                   id="name"
-                  label="チーム名"
+                  label="リーダー名"
                   className={classes.textField}
                   value={this.state.name}
                   onChange={this.handleChange('name')}
                   margin="normal"
               />
               <TextField
-                  id="shortdesc"
+                  id="gameTag"
                   label="#"
                   className={classes.textField}
-                  value={this.state.shortDesc}
-                  onChange={this.handleChange('shortDesc')}
+                  value={this.state.gameTag}
+                  onChange={this.handleChange('gameTag')}
                   margin="normal"
               />
               <TextField
@@ -160,11 +159,11 @@ class ProjectCreator extends React.Component {
         );
     }
 }
-ProjectCreator.propTypes = {
+Board.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default (withStyles(styles)(ProjectCreator));
+export default (withStyles(styles)(Board));
 /*
 export default function (props) {
     return <div>
