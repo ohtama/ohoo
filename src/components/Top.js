@@ -10,24 +10,22 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 
-import wallpaper from '../venice.jpg';
-
 const styles = {
   nav: {
     width: "100%"
   },
   wp: {
-    minHeight: "100vh",
+    minHeight: "90.5vh",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    backgroundImage: "url(" + wallpaper + ")",
+    backgroundColor: "#003366",
+    backgroundAttachment: "fixed",
   },
   topContainer: {
     height: "100vh",
     paddingRight: "20px",
     paddingLeft: "20px",
-    backgroundColor: "#003366",
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
@@ -138,7 +136,6 @@ class Top extends React.Component{
     return (
       <React.Fragment>
         <div className={classes.wp}>
-        <Link to='/ProjectList'>掲示板</Link>
         </div>
       </React.Fragment>   
     );

@@ -9,18 +9,22 @@ import Button from '@material-ui/core/Button';
 
 const styles = {
 	par: {
+		widhth: "100%",
+		minHeight: "90.5vh",
+		backgroundColor: "#003366",
 		padding: "5%",
 	},
   title:  {
     textAlign: "center",
-    fontSize: "25px"
+		fontSize: "300%",
+		fontFamily: "Georgia",
 	},
 	right: {
 		textAlign: "right"
 	},
   searchBox: {
     width: "30%",
-		height: "20px",
+		height: "50px",
  	  fontSize: "25px",
     borderRadius: "3px",
     border: "3px solid #cccccc",
@@ -60,7 +64,7 @@ class ProjectList extends React.Component {
           	</div>
 					</div>
           <div className={classes.title}>
-            掲示板検索
+            Search
           </div>
           <input onKeyPress={this.onKeyPress} className={classes.searchBox} ref="search_box"></input>
         </div>

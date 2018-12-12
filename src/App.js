@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch, NavLink, Redirect, withRouter } from "react-router-dom";
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -8,7 +9,6 @@ import IconButton from '@material-ui/core/IconButton';
 //import logo from './logo.svg';
 import './App.css';
 
-//import Top from './components/top';
 import Top from './components/Top';
 import Board from './components/Board';
 import Home from './components/Home';
@@ -16,14 +16,13 @@ import Navbar from './components/Navbar';
 import ProjectList from './components/ProjectList'
 import Profile from './components/Profile';
 
-const page_reload_in = 5000
-
 const styles = {
   wp: {
     minHeight: "100vh",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    backgroundColor: "#003366",
     //backgroundImage: "url(" + wallpaper + ")",
   },
   topContainer: {
@@ -71,7 +70,7 @@ class App extends Component {
         </header>
         <div className="overlay">
         <Switch>
-          <Route exact path='/' component={ Top } />
+          <Route exact path='/' component={Top} />
           <Route exact path='/Board' component={ Board } />
           <Route exact path='/Home' component={ Home } />
           <Route exact path='/ProjectList' component={ ProjectList} />
@@ -83,4 +82,4 @@ class App extends Component {
   }
 }
 
-export default (withStyles(styles)(App))
+export default withStyles(styles)(App)

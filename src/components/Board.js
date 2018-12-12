@@ -12,6 +12,7 @@ import TextField from '@material-ui/core/TextField';
 
 const styles = {
     main: {
+      backgroundColor: "#003366",
       padding: "10px",
       paddingTop: "20px",
       paddingRight: "20px",

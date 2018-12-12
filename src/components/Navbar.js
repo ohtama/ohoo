@@ -19,6 +19,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Badge from '@material-ui/core/Badge';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import Button from '@material-ui/core/Button';
 
 import Profile from './Profile'
 
@@ -27,6 +31,13 @@ const drawerWidth = 240;
 const styles = theme => ({
   root: {
     display: 'flex',
+  },
+  link: {
+    color: "white",
+    whiteSpace: "nowrap",
+    margin: "auto",
+    marginRight: "20px",
+    textDecoration: "none",
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
@@ -59,7 +70,7 @@ const styles = theme => ({
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
-    padding: '0 8px',
+    padding: '0 9px',
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
   },
@@ -79,6 +90,18 @@ const styles = theme => ({
     }),
     marginLeft: 0,
   },
+  sectionDesktop: {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
+    },
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  button: {
+    margin: theme.spacing.unit,
+  },
 });
 
 class Navbar extends React.Component {
@@ -93,11 +116,10 @@ class Navbar extends React.Component {
   handleDrawerClose = () => {
     this.setState({ open: false });
   };
-
-  render() {
+  
+  render(){
     const { classes, theme } = this.props;
     const { open } = this.state;
-
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -117,8 +139,20 @@ class Navbar extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              <Link to='/'>Ohoo!</Link>
+              <Link to='/' style={{color: "white", textDecoration: "none"}} >Ohoo!</Link>
             </Typography>
+            <div className={classes.grow} />
+            <div className={classes.sectionDesktop}>
+                <Link to='/Home' className={classes.link} >ホーム</Link>
+                <Link to='/ProjectList' className={classes.link} >掲示板</Link>
+                <Link to='/Ranking' className={classes.link} >ランキング</Link>
+              <Button variant="contained" href="#signin" className={classes.button}>
+                ログイン
+              </Button>
+              <Button variant="contained" href="#signup" className={classes.button}>
+                登録
+              </Button>
+            </div>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -136,9 +170,8 @@ class Navbar extends React.Component {
             </IconButton>
           </div>
           <Divider />
-          <List>
+          
             <Profile />
-          </List>
         </Drawer>
         <main
           className={classNames(classes.content, {

@@ -5,9 +5,9 @@ import Button from '@material-ui/core/Button';
 
 const styles = {
   block: {
-    position:"absolute",
+    position:"fixed",
     marginLeft:"0%",
-    width: "20%",
+    width: "100%",
     height: "450px",
     background: "#042133"
   },
