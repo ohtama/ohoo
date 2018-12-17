@@ -96,13 +96,13 @@ class ProjectList extends React.Component {
         <div className={classes.par}>
 					<div className={classes.right}>
 						<div className={classes.buttonContainer}>
+							<Link to= '/board' className={classes.link}>
           	    <Button onClick={this.onClickPost} variant="contained" color="secondary">
-								<div>
-                	<Link to= '/board' className={classes.link}>
+									<div>
                   	新規投稿
-                	</Link>
-              	</div>
+              		</div>
              	 	</Button>
+							</Link>
           	</div>
 					</div>
           <div className={classes.title}>

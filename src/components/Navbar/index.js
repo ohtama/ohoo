@@ -24,7 +24,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 
-import Profile from '../Profile/index'
+import Profile from '../Profile/index';
 
 const drawerWidth = 240;
 

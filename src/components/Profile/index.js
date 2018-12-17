@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
+import image from '../../venice.jpg'
+
 const styles = {
   block: {
     position:"fixed",
@@ -104,7 +106,7 @@ class Profile extends React.Component{
     return (
       <div className={classes.main}>
         <div className={classes.block}>
-          <img src="./user.png" className={classes.pic}/>
+          <img src= {image} className={classes.pic}/>
 
           <div className={classes.follow}>
             フォロー
