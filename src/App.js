@@ -9,12 +9,17 @@ import IconButton from '@material-ui/core/IconButton';
 //import logo from './logo.svg';
 import './App.css';
 
-import Top from './components/Top';
-import Board from './components/Board';
-import Home from './components/Home';
-import Navbar from './components/Navbar';
-import ProjectList from './components/ProjectList'
-import Profile from './components/Profile';
+import Top from './components/Top/index';
+import Home from './components/Home/index';
+import Board from './components/Board/index';
+import Navbar from './components/Navbar/index';
+import ProjectList from './components/ProjectList/index'
+import Profile from './components/Profile/index';
+import Signup from './components/Signup/index';
+import Signin from './components/Signin/index';
+import Project from './components/Project/index';
+
+const page_reload_in = 5000
 
 const styles = {
   wp: {
@@ -70,11 +75,12 @@ class App extends Component {
         </header>
         <div className="overlay">
         <Switch>
-          <Route exact path='/' component={Top} />
+          <Route exact path='/Top' component={ Top } />
           <Route exact path='/Board' component={ Board } />
           <Route exact path='/Home' component={ Home } />
           <Route exact path='/ProjectList' component={ ProjectList} />
           <Route exact path='/Profile' component={ Profile } />
+          <Route exact path='/Project' component={ Project } />
         </Switch>
         </div>
       </div>
@@ -82,4 +88,4 @@ class App extends Component {
   }
 }
 
-export default withStyles(styles)(App)
+export default withStyles(styles)(App);

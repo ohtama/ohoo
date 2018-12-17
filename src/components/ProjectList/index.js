@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
+import classNames from 'classnames';
 
 const styles = {
 	par: {
@@ -44,12 +45,53 @@ const styles = {
     color: "white",
     whiteSpace: "nowrap",
     margin: "8px"
+	},
+	shadow: {
+    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2)"
+  },
+  box: {
+		marginTop: "2%",
+		margin: "auto",
+    flex: "0 0 auto",
+    width: "300px",
+    height: "200px",
+    marginBottom: "30px",
+    borderRadius: "5px",
+    backgroundColor: "#FFFFFF",
+    textAlign: "center",
+    cursor: "pointer",
+    transition: "backgroundColor 0.5s",
+    border: "none",
+    padding: "20px",
+    overflow: "hidden",
+    "&:hover": {
+      backgroundColor: "#eff5f6"
+    }
+  },
+  boxTitle: {
+    fontSize: "30px",
+    textOverflow: "ellipsis",
+    overflow: "hidden"
+  },
+  boxDesc: {
+    fontSize: "20px",
+    color: "#cccccc",
+    whiteSpace: "pre-line",
+    textOverflow: "ellipsis",
+    overflow: "hidden"
   },
 };
 
 class ProjectList extends React.Component {
+
+	state = {
+	}
+	onClick = () => {
+		this.props.history.push("/projects/" + this.props.projdata.id.toString())
+	}
+
   render(){
-  	const {classes} = this.props;
+		const {classes} = this.props;
       return(
         <div className={classes.par}>
 					<div className={classes.right}>
@@ -67,7 +109,15 @@ class ProjectList extends React.Component {
             Search
           </div>
           <input onKeyPress={this.onKeyPress} className={classes.searchBox} ref="search_box"></input>
-        </div>
+						<div className={classNames(classes.box, classes.shadow)} onClick={this.onClick}>
+							<div className={classes.boxTitle}>
+							LoLチーム募集
+							</div>
+							<div className={classes.boxDesc}>
+								sup@1
+							</div>
+						</div>
+				</div>
         );
     }
 }

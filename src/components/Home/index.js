@@ -10,8 +10,6 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 
-import Navber from './Navbar';
-
 const styles = {
   nav: {
     width: "100%"
@@ -124,7 +122,7 @@ const styles = {
   }
 };
 
-class Top extends React.Component{
+class Home extends React.Component{
   state = {
     getImage: [],
   };
@@ -143,8 +141,8 @@ class Top extends React.Component{
   }
 }
 
-Top.propTypes = {
+Home.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Top);
+export default withStyles(styles)(Home);

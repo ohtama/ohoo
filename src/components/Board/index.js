@@ -27,11 +27,11 @@ const styles = {
     },
     name: {
       fontSize: "25px",
-      color: "#000000"
+      color: "#FFFFFF"
     },
     job: {
       fontSize: "15px",
-      color: "#cccccc"
+      color: "#FFFFFF"
     },
     avatar: {
       flex: "0 0 auto",
@@ -45,9 +45,12 @@ const styles = {
     },
     desc: {
       fontSize: "20px",
-      color: "#000000",
+      color: "white",
       paddingRight: "20px",
       paddingLeft: "20px"
+    },
+    color:{
+      color: "white",
     },
     flex: {
       paddingRight: "20%",
@@ -58,6 +61,7 @@ const styles = {
       justifyContent: "space-between",
     },
     textarea: {
+        color: "white",
         width: "100%",
         height: "30px"
     },
@@ -73,7 +77,7 @@ const styles = {
       height: "30px",
       fontSize: "25px",
       borderRadius: "3px",
-      border: "1px solid #cccccc",
+      border: "1px solid #FFFFFF",
       outline: "0px",
       padding: "10px",
       "&:focus": {
@@ -81,6 +85,7 @@ const styles = {
       }
     },
     titleText: {
+      color: "white",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
