@@ -15,6 +15,7 @@ import Board from './components/Board/index';
 import Navbar from './components/Navbar/index';
 import ProjectList from './components/ProjectList/index'
 import Profile from './components/Profile/index';
+import Ranking from './components/Ranking/index';
 import Signup from './components/Signup/index';
 import Signin from './components/Signin/index';
 import Project from './components/Project/index';
@@ -81,6 +82,7 @@ class App extends Component {
           <Route exact path='/ProjectList' component={ ProjectList} />
           <Route exact path='/Profile' component={ Profile } />
           <Route exact path='/Project' component={ Project } />
+          <Route exact path='/Ranking' component={ Ranking } />
         </Switch>
         </div>
       </div>
