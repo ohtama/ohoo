@@ -11,14 +11,6 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import classnames from 'classnames';
 
-import UserLink from './UserLink';
-
-import Loading from './Loading';
-import spinnerImage from '../spinner.jpg';
-
-import api from '../utils/api';
-import {mapStateToProps} from '../utils/misc';
-
 const styles = {
     main: {
       minHeight: "100px",
@@ -55,7 +47,7 @@ class Comment extends React.Component {
             {this.props.text}
           </div>
           <div className={classes.avatarContainer}>
-            <UserLink userdata={this.props.userdata} />
+            
             <div className={classes.date}>
               {this.props.date}
             </div>

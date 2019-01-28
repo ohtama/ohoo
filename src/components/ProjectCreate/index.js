@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, NavLink, Redirect } from "react-router-dom";
-import { withRouter } from "react-router-dom";
+import { Route, Link, Switch, NavLink, Redirect, withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -10,27 +9,17 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
+import Field from './field.js';
+import { createMuiTheme } from '@material-ui/core/styles';
 
-import classnames from 'classnames';
-
-import Loading from './Loading';
-import spinnerImage from '../spinner.jpg';
-
-import Comment from './Comment';
-
-import {test} from '../actions';
-import api from '../utils/api';
-import {mapStateToProps} from '../utils/misc';
-import { loginUser, logoutUser, getMyInfo, openSignin, openSignup, closeSignin, closeSignup } from '../actions'
-
-
-const styles = {
+const styles = theme => ({
     main: {
-      padding: "20px",
-      paddingTop: "40px",
+      backgroundColor: "#003366",
+      padding: "10px",
+      paddingTop: "20px",
       paddingRight: "20px",
       paddingLeft: "20px",
-      minHeight: "100vh"
+      minHeight: "5vh"
     },
     basics: {
       display: "flex",
@@ -40,11 +29,11 @@ const styles = {
     },
     name: {
       fontSize: "25px",
-      color: "#000000"
+      color: "#FFFFFF"
     },
     job: {
       fontSize: "15px",
-      color: "#cccccc"
+      color: "#FFFFFF"
     },
     avatar: {
       flex: "0 0 auto",
@@ -58,11 +47,15 @@ const styles = {
     },
     desc: {
       fontSize: "20px",
-      color: "#000000",
+      color: "white",
       paddingRight: "20px",
       paddingLeft: "20px"
     },
+    color:{
+      color: "white",
+    },
     flex: {
+      color: "white",
       paddingRight: "20%",
       paddingLeft: "20%",
       paddingBottom: "40px",
@@ -71,8 +64,9 @@ const styles = {
       justifyContent: "space-between",
     },
     textarea: {
+        color: "white",
         width: "100%",
-        height: "100px"
+        height: "30px"
     },
     commentContainer: {
         paddingTop: "10px",
@@ -86,7 +80,7 @@ const styles = {
       height: "30px",
       fontSize: "25px",
       borderRadius: "3px",
-      border: "1px solid #cccccc",
+      border: "1px solid #FFFFFF",
       outline: "0px",
       padding: "10px",
       "&:focus": {
@@ -94,6 +88,7 @@ const styles = {
       }
     },
     titleText: {
+      color: "white",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
@@ -106,30 +101,29 @@ const styles = {
       paddingLeft: "20%",
       display: "flex",
       flexFlow: "row-reverse nowrap"
-    }
-};
+    },
+});
 
-class ProjectCreator extends React.Component {
+const theme = createMuiTheme({
+  textField: {
+    borderBottom: 'white',
+  }
+});
+
+class ProjectCreate extends React.Component {
     state = {
       name: "",
-      shortDesc: "",
+      gameTag: "",
       desc: "",
-      mainImg: ""
     };
     componentDidMount() {
     }
     onClickPost = () => {
         var params = {
           name: this.state.name.trim(),
-          shortDesc: this.state.shortDesc.trim(),
+          gameTag: this.state.gameTag.trim(),
           desc: this.state.desc.trim(),
         }
-        api.createProject(params).then(r => {
-            console.log("create project: ", r)
-            this.props.history.push("/projects/" + r.id)
-        }).catch(e => {
-          this.props.dispatch(openSignin())
-        })
     }
     handleChange = name => {
         return event => {
@@ -141,28 +135,21 @@ class ProjectCreator extends React.Component {
         return (
           <div className={classes.main}>
             <div className={classes.titleText}>
-              プロジェクト作成
+              チーム募集板
             </div>
             <div className={classes.flex}>
               <TextField
                   id="name"
-                  label="名前"
+                  label="募集名"
                   className={classes.textField}
                   value={this.state.name}
                   onChange={this.handleChange('name')}
                   margin="normal"
               />
-              <TextField
-                  id="shortdesc"
-                  label="短い説明"
-                  className={classes.textField}
-                  value={this.state.shortDesc}
-                  onChange={this.handleChange('shortDesc')}
-                  margin="normal"
-              />
+              <Field/>
               <TextField
                   id="desc"
-                  label="説明"
+                  label="詳細"
                   className={classes.textField}
                   value={this.state.desc}
                   onChange={this.handleChange('desc')}
@@ -181,8 +168,8 @@ class ProjectCreator extends React.Component {
         );
     }
 }
-ProjectCreator.propTypes = {
+ProjectCreate.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default connect(mapStateToProps)(withRouter(withStyles(styles)(ProjectCreator)));
+export default (withStyles(styles)(ProjectCreate));

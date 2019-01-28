@@ -1,148 +1,72 @@
 import React from 'react';
-import { Route, Link, Switch, NavLink, Redirect, withRouter } from "react-router-dom";
-import { connect } from 'react-redux'
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import FilledInput from '@material-ui/core/FilledInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
-const styles = {
-  nav: {
-    width: "100%"
+const styles = theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
   },
-  wp: {
-    minHeight: "100vh",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    //backgroundImage: "url(" + wallpaper + ")",
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 120,
   },
-  topContainer: {
-    height: "100vh",
-    paddingRight: "20px",
-    paddingLeft: "20px",
-    backgroundColor: "rgba(0, 0, 255, 0.2)",
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center"
+  selectEmpty: {
+    marginTop: theme.spacing.unit * 2,
   },
-  topItem: {
-    width: "40vw"
-  },
-  form: {
-    width: "400px",
-    maxWidth: "100%",
-    marginTop: "200px"
-  },
-  flex: {
-    paddingRight: "60px",
-    paddingLeft: "60px",
-    display: "flex",
-    flexFlow: "column nowrap",
-    alignContent: "center"
-  },
-  hugeText: {
-    marginTop: 200,
-    marginBottom: 100,
-    fontSize: "100px",
-    color: "#FFFFFF"
-  },
-  searchBox: {
-    width: "100%",
-    height: "30px",
-    fontSize: "25px",
-    borderRadius: "3px",
-    border: "1px solid #cccccc",
-    outline: "0px",
-    padding: "10px",
-    "&:focus": {
-      outline: "1px solid #4da7fe !important"
-    }
-  },
-  center: {
-    display: "flex",
-    flexFlow: "column nowrap",
-    alignItems: "center",
-    alignContent: "center",
-    justifyContent: "center",
-  },
-  title: {
-    textAlign: "center",
-    fontSize: "40px",
-  },
-  showcase: {
-    display: "flex",
-    flexFlow: "row wrap",
-    justifyContent: "space-around"
-  },
-  showcaseBlock: {
-    marginTop: "80px",
-    marginBottom: "80px",
-  },
-  grad: {
-    background: "linear-gradient(145deg, #509cc7, #4d90fe)"
-  },
-  shadow: {
-    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2)"
-  },
-  box: {
-    flex: "0 0 auto",
-    width: "300px",
-    height: "200px",
-    marginBottom: "30px",
-    borderRadius: "5px",
-    backgroundColor: "#FFFFFF",
-    textAlign: "center",
-    cursor: "pointer",
-    transition: "backgroundColor 0.5s",
-    border: "none",
-    padding: "20px",
-    "&:hover": {
-      backgroundColor: "#eff5f6"
-    }
-  },
-  boxTitle: {
-    fontSize: "30px"
-  },
-  boxDesc: {
-    fontSize: "20px",
-    color: "#cccccc"
-  },
-  '@media (max-width: 900px)': {
-    form: {
-      width: "100vw",
-      marginTop: "0px"
-    }
-  }
-};
+});
 
-class Home extends React.Component{
+class SimpleSelect extends React.Component {
   state = {
-    getImage: [],
+    age: '',
+    name: 'hai',
+    labelWidth: 0,
   };
-  componentDidMount(){
-    window.scrollTo(0, 0)
-    this.getImage
-  }
 
-  render(){
-    const {classes} = this.props;
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  render() {
+    const { classes } = this.props;
+
     return (
-      <React.Fragment>
-        
-      </React.Fragment>
+      <form className={classes.root} autoComplete="off">
+        <FormControl className={classes.formControl} error>
+        <InputLabel htmlFor="age-simple">Age</InputLabel>
+          <Select
+            value={this.state.age}
+            onChange={this.handleChange}
+            inputProps={{
+              name: 'age',
+              id: 'age-simple',
+            }}
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+      </form>
     );
   }
 }
 
-Home.propTypes = {
+SimpleSelect.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(SimpleSelect);
